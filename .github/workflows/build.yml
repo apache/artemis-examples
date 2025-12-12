@@ -10,7 +10,7 @@ on:
       examplesRepo:
         description: '(For non-main Examples) Artemis repo'
         required: true
-        default: 'apache/activemq-artemis'
+        default: 'apache/artemis'
         type: string
       examplesRepoBranch:
         description: '(For non-main Examples) Artemis branch'
@@ -19,7 +19,7 @@ on:
         type: string
 
 env:
-  ARTEMIS_REPO: ${{ inputs.examplesRepo || 'apache/activemq-artemis' }}
+  ARTEMIS_REPO: ${{ inputs.examplesRepo || 'apache/artemis' }}
   ARTEMIS_BRANCH: ${{ inputs.examplesRepoBranch || 'main' }}
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: activemq-artemis-examples
+          path: artemis-examples
 
       - name: Cache Maven Local Repo
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
@@ -42,7 +42,7 @@ jobs:
         with:
           path: |
             ~/.m2/repository/
-          key: ${{ runner.os }}-mvn-${{ hashFiles('activemq-artemis-examples/**/pom.xml') }}
+          key: ${{ runner.os }}-mvn-${{ hashFiles('artemis-examples/**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-mvn-
 
@@ -58,13 +58,13 @@ jobs:
         with:
           repository: ${{ env.ARTEMIS_REPO }}
           ref: ${{ env.ARTEMIS_BRANCH }}
-          path: activemq-artemis
+          path: artemis
 
       - name: Identify Artemis Version (non-main Examples)
         id: identify-artemis-version
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
-          cd activemq-artemis
+          cd artemis
           CURRENT_ARTEMIS_BUILD_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           echo "Current Artemis version: ${CURRENT_ARTEMIS_BUILD_VERSION}"
           echo "artemis-build-version=${CURRENT_ARTEMIS_BUILD_VERSION}" >> $GITHUB_OUTPUT
@@ -72,14 +72,14 @@ jobs:
       - name: Build Artemis (non-main Examples)
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
-          cd activemq-artemis
-          mvn -s ../activemq-artemis-examples/.github/maven-settings.xml install -DskipTests -T1C
+          cd artemis
+          mvn -s ../artemis-examples/.github/maven-settings.xml install -DskipTests -T1C
 
       - name: Identify Examples Version (non-main Examples)
         id: identify-examples-version
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
-          cd activemq-artemis-examples
+          cd artemis-examples
           CURRENT_EXAMPLES_BUILD_VERSION=$(grep -m 1 -Po '(?<=version>)[^<]+' pom.xml)
           echo "Current Examples version: ${CURRENT_EXAMPLES_BUILD_VERSION}"
           echo "examples-build-version=${CURRENT_EXAMPLES_BUILD_VERSION}" >> $GITHUB_OUTPUT
@@ -87,20 +87,22 @@ jobs:
       - name: Set Examples Version to Artemis Version (non-main Examples)
         if: ${{ ((github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main')) && steps.identify-artemis-version.outputs.artemis-build-version != steps.identify-examples-version.outputs.examples-build-version }}
         run: |
-          cd activemq-artemis-examples
+          cd artemis-examples
           ./scripts/update-examples-version.sh ${{ steps.identify-artemis-version.outputs.artemis-build-version }}
           git diff -U0 -p --stat
 
       - name: Verify Examples
         run: |
-          cd activemq-artemis-examples
+          cd artemis-examples
           ./scripts/run-examples.sh
 
       - name: Clean Up Before Caching
         run: |
           rm -rf ~/.m2/repository/org/apache/activemq/tests
           rm -rf ~/.m2/repository/org/apache/activemq/examples
-          if [ -d ~/.m2/repository/org/apache/activemq ]; then find ~/.m2/repository/org/apache/activemq -name "*-SNAPSHOT" -type d -prune -exec rm -r '{}' \; ; fi
+          rm -rf ~/.m2/repository/org/apache/artemis/tests
+          rm -rf ~/.m2/repository/org/apache/artemis/examples
+          if [ -d ~/.m2/repository/org/apache ]; then find ~/.m2/repository/org/apache -name "*-SNAPSHOT" -type d -prune -exec rm -r '{}' \; ; fi
 
   checks:
     name: Compile Check
@@ -113,7 +115,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: activemq-artemis-examples
+          path: artemis-examples
 
       - name: Cache Maven Local Repo
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
@@ -121,7 +123,7 @@ jobs:
         with:
           path: |
             ~/.m2/repository/
-          key: ${{ runner.os }}-mvn-${{ hashFiles('activemq-artemis-examples/**/pom.xml') }}
+          key: ${{ runner.os }}-mvn-${{ hashFiles('artemis-examples/**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-mvn-
 
@@ -137,13 +139,13 @@ jobs:
         with:
           repository: ${{ env.ARTEMIS_REPO }}
           ref: ${{ env.ARTEMIS_BRANCH }}
-          path: activemq-artemis
+          path: artemis
 
       - name: Identify Artemis Version (non-main Examples)
         id: identify-artemis-version
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
-          cd activemq-artemis
+          cd artemis
           CURRENT_ARTEMIS_BUILD_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           echo "Current Artemis version: ${CURRENT_ARTEMIS_BUILD_VERSION}"
           echo "artemis-build-version=${CURRENT_ARTEMIS_BUILD_VERSION}" >> $GITHUB_OUTPUT
@@ -151,14 +153,14 @@ jobs:
       - name: Build Artemis (non-main Examples)
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
-          cd activemq-artemis
-          mvn -s ../activemq-artemis-examples/.github/maven-settings.xml install -DskipTests -T1C
+          cd artemis
+          mvn -s ../artemis-examples/.github/maven-settings.xml install -DskipTests -T1C
 
       - name: Identify Examples Version (non-main Examples)
         id: identify-examples-version
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
-          cd activemq-artemis-examples
+          cd artemis-examples
           CURRENT_EXAMPLES_BUILD_VERSION=$(grep -m 1 -Po '(?<=version>)[^<]+' pom.xml)
           echo "Current Examples version: ${CURRENT_EXAMPLES_BUILD_VERSION}"
           echo "examples-build-version=${CURRENT_EXAMPLES_BUILD_VERSION}" >> $GITHUB_OUTPUT
@@ -166,24 +168,26 @@ jobs:
       - name: Set Examples Version to Artemis Version (non-main Examples)
         if: ${{ ((github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main')) && steps.identify-artemis-version.outputs.artemis-build-version != steps.identify-examples-version.outputs.examples-build-version }}
         run: |
-          cd activemq-artemis-examples
+          cd artemis-examples
           ./scripts/update-examples-version.sh ${{ steps.identify-artemis-version.outputs.artemis-build-version }}
           git diff -U0 -p --stat
 
       - name: Build Examples (JDK 25 / -Prelease)
         if: matrix.java == '25'
         run: |
-          cd activemq-artemis-examples
+          cd artemis-examples
           mvn -s .github/maven-settings.xml package -Prelease
 
       - name: Build Examples (JDK <25 / -Pexamples,noRun)
         if: matrix.java != '25'
         run: |
-          cd activemq-artemis-examples
+          cd artemis-examples
           mvn -s .github/maven-settings.xml package -Pexamples,noRun
 
       - name: Clean Up Before Caching
         run: |
           rm -rf ~/.m2/repository/org/apache/activemq/tests
           rm -rf ~/.m2/repository/org/apache/activemq/examples
-          if [ -d ~/.m2/repository/org/apache/activemq ]; then find ~/.m2/repository/org/apache/activemq -name "*-SNAPSHOT" -type d -prune -exec rm -r '{}' \; ; fi
+          rm -rf ~/.m2/repository/org/apache/artemis/tests
+          rm -rf ~/.m2/repository/org/apache/artemis/examples
+          if [ -d ~/.m2/repository/org/apache ]; then find ~/.m2/repository/org/apache -name "*-SNAPSHOT" -type d -prune -exec rm -r '{}' \; ; fi
