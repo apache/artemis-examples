@@ -26,14 +26,14 @@ under the License.
    <name>ActiveMQ Artemis Soak Normal Example</name>
 
    <parent>
-      <groupId>org.apache.activemq.examples.soak</groupId>
+      <groupId>org.apache.artemis.examples.soak</groupId>
       <artifactId>perf-root</artifactId>
-      <version>2.45.0-SNAPSHOT</version>
+      <version>2.50.0-SNAPSHOT</version>
    </parent>
 
    <dependencies>
       <dependency>
-         <groupId>org.apache.activemq</groupId>
+         <groupId>org.apache.artemis</groupId>
          <artifactId>artemis-jms-client</artifactId>
          <version>${project.version}</version>
       </dependency>
@@ -59,7 +59,7 @@ under the License.
          <build>
             <plugins>
                <plugin>
-                  <groupId>org.apache.activemq</groupId>
+                  <groupId>org.apache.artemis</groupId>
                   <artifactId>artemis-maven-plugin</artifactId>
                   <executions>
                      <execution>
@@ -75,7 +75,7 @@ under the License.
                   </executions>
                   <dependencies>
                      <dependency>
-                        <groupId>org.apache.activemq.examples.soak</groupId>
+                        <groupId>org.apache.artemis.examples.soak</groupId>
                         <artifactId>artemis-jms-soak-example</artifactId>
                         <version>${project.version}</version>
                      </dependency>
@@ -89,7 +89,7 @@ under the License.
          <build>
             <plugins>
                <plugin>
-                  <groupId>org.apache.activemq</groupId>
+                  <groupId>org.apache.artemis</groupId>
                   <artifactId>artemis-maven-plugin</artifactId>
                   <executions>
                      <execution>
@@ -113,7 +113,7 @@ under the License.
                   </executions>
                   <dependencies>
                      <dependency>
-                        <groupId>org.apache.activemq.examples.soak</groupId>
+                        <groupId>org.apache.artemis.examples.soak</groupId>
                         <artifactId>artemis-jms-soak-example</artifactId>
                         <version>${project.version}</version>
                      </dependency>
@@ -127,7 +127,7 @@ under the License.
          <build>
             <plugins>
                <plugin>
-                  <groupId>org.apache.activemq</groupId>
+                  <groupId>org.apache.artemis</groupId>
                   <artifactId>artemis-maven-plugin</artifactId>
                   <executions>
                      <execution>
@@ -157,7 +157,7 @@ under the License.
                   </executions>
                   <dependencies>
                      <dependency>
-                        <groupId>org.apache.activemq.examples.soak</groupId>
+                        <groupId>org.apache.artemis.examples.soak</groupId>
                         <artifactId>artemis-jms-soak-example</artifactId>
                         <version>${project.version}</version>
                      </dependency>

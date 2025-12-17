@@ -22,9 +22,9 @@ under the License.
    <modelVersion>4.0.0</modelVersion>
 
    <parent>
-      <groupId>org.apache.activemq.examples.soak</groupId>
+      <groupId>org.apache.artemis.examples.soak</groupId>
       <artifactId>perf-root</artifactId>
-      <version>2.45.0-SNAPSHOT</version>
+      <version>2.50.0-SNAPSHOT</version>
    </parent>
 
    <artifactId>openwire-perf</artifactId>
@@ -66,7 +66,7 @@ under the License.
       </dependency>
       <dependency>
          <!-- this is to have the ServerUtil -->
-         <groupId>org.apache.activemq</groupId>
+         <groupId>org.apache.artemis</groupId>
          <artifactId>artemis-cli</artifactId>
          <version>${project.version}</version>
       </dependency>
@@ -91,7 +91,7 @@ under the License.
          <build>
             <plugins>
                <plugin>
-                  <groupId>org.apache.activemq</groupId>
+                  <groupId>org.apache.artemis</groupId>
                   <artifactId>artemis-maven-plugin</artifactId>
                   <executions>
                      <execution>
@@ -119,7 +119,7 @@ under the License.
                   </executions>
                   <dependencies>
                      <dependency>
-                        <groupId>org.apache.activemq.examples.soak</groupId>
+                        <groupId>org.apache.artemis.examples.soak</groupId>
                         <artifactId>openwire-perf</artifactId>
                         <version>${project.version}</version>
                      </dependency>
@@ -133,7 +133,7 @@ under the License.
          <build>
             <plugins>
                <plugin>
-                  <groupId>org.apache.activemq</groupId>
+                  <groupId>org.apache.artemis</groupId>
                   <artifactId>artemis-maven-plugin</artifactId>
                   <executions>
                      <execution>
@@ -148,7 +148,7 @@ under the License.
                   </executions>
                   <dependencies>
                      <dependency>
-                        <groupId>org.apache.activemq.examples.soak</groupId>
+                        <groupId>org.apache.artemis.examples.soak</groupId>
                         <artifactId>openwire-perf</artifactId>
                         <version>${project.version}</version>
                      </dependency>
@@ -162,7 +162,7 @@ under the License.
          <build>
             <plugins>
                <plugin>
-                  <groupId>org.apache.activemq</groupId>
+                  <groupId>org.apache.artemis</groupId>
                   <artifactId>artemis-maven-plugin</artifactId>
                   <executions>
                      <execution>
@@ -177,7 +177,7 @@ under the License.
                   </executions>
                   <dependencies>
                      <dependency>
-                        <groupId>org.apache.activemq.examples.soak</groupId>
+                        <groupId>org.apache.artemis.examples.soak</groupId>
                         <artifactId>openwire-perf</artifactId>
                         <version>${project.version}</version>
                      </dependency>
