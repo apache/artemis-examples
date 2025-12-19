@@ -26,7 +26,7 @@ import org.fusesource.mqtt.client.QoS;
 import org.fusesource.mqtt.client.Topic;
 
 /**
- * A simple example that shows how to implement and use interceptors with ActiveMQ Artemis with the MQTT protocol.
+ * A simple example that shows how to implement and use interceptors with Apache Artemis with the MQTT protocol.
  */
 public class InterceptorExample {
    public static void main(final String[] args) throws Exception {

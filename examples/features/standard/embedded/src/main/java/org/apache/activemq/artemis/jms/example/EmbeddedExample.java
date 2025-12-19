@@ -31,7 +31,7 @@ import org.apache.activemq.artemis.core.server.ActiveMQServer;
 import org.apache.activemq.artemis.core.server.ActiveMQServers;
 
 /**
- * This example demonstrates how to run an embedded ActiveMQ Artemis broker with programmatic configuration
+ * This example demonstrates how to run an embedded Apache Artemis broker with programmatic configuration
  */
 public final class EmbeddedExample {
 

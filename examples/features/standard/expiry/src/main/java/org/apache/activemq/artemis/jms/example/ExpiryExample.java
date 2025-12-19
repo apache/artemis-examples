@@ -92,7 +92,7 @@ public class ExpiryExample {
          // The message received from the expiry queue has the same content than the expired message but its JMS headers
          // differ
          // (from JMS point of view, it's not the same message).
-         // ActiveMQ Artemis defines additional properties to correlate the message received from the expiry queue with the
+         // Apache Artemis defines additional properties to correlate the message received from the expiry queue with the
          // message expired from the queue
 
          System.out.println();

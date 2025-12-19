@@ -38,7 +38,7 @@ import org.apache.activemq.artemis.api.jms.JMSFactoryType;
  * with from using clustering in an app server, where every node has pretty much identical
  * configuration to every other node.
  * <p>
- * By clustering nodes symmetrically, ActiveMQ Artemis can give the impression of clustered queues, topics
+ * By clustering nodes symmetrically, Apache Artemis can give the impression of clustered queues, topics
  * and durable subscriptions.
  * <p>
  * In this example we send some messages to a distributed queue and topic and kill all the live

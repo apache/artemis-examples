@@ -111,7 +111,7 @@ public class DeadLetterExample {
          // The message received from the dead letter queue has the same content than the undelivered message but its
          // JMS headers
          // differ (from JMS point of view, it's not the same message).
-         // ActiveMQ Artemis defines additional properties for messages received from the dead letter queue
+         // Apache Artemis defines additional properties for messages received from the dead letter queue
 
          System.out.println();
          // Step 21. the messageReceived's destination is now the dead letter queue.

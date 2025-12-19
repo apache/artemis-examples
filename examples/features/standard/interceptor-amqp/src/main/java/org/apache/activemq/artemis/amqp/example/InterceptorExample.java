@@ -25,7 +25,7 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 
 /**
- * A simple example that shows how to implement and use interceptors with ActiveMQ Artemis with the AMQP protocol.
+ * A simple example that shows how to implement and use interceptors with Apache Artemis with the AMQP protocol.
  */
 public class InterceptorExample {
    public static void main(final String[] args) throws Exception {

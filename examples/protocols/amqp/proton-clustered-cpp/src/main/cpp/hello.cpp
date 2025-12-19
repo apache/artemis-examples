@@ -23,7 +23,7 @@
 /*
     Jiira Issue: https://issues.apache.org/jira/browse/ARTEMIS-1542
     Modified example (source was hello.cpp).
-    This example produces an exception in ActiveMQ Artemis 2.4.0 in a HA setup.
+    This example produces an exception in Apache Artemis 2.4.0 in a HA setup.
     Prerequisites: Two brokers are running in a HA cluster.
     This example sends a message to broker1 and tries to read from broker 2.
 

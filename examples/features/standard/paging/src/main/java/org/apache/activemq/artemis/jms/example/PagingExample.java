@@ -156,7 +156,7 @@ public class PagingExample {
             // Start the JMS Connection. This step will activate the subscribers to receive messages.
             connection.start();
 
-            // Receive the messages. It's important to ACK for messages as ActiveMQ Artemis will not read messages from
+            // Receive the messages. It's important to ACK for messages as Apache Artemis will not read messages from
             // paging
             // until messages are ACKed
 

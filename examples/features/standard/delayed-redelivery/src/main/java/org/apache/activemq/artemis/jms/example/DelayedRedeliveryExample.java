@@ -26,7 +26,7 @@ import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 
 /**
- * This example demonstrates how ActiveMQ Artemis can be configured with a redelivery delay in the event a message
+ * This example demonstrates how Apache Artemis can be configured with a redelivery delay in the event a message
  * is redelivered.
  *
  * Please see the readme for more information

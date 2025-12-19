@@ -28,7 +28,7 @@ import org.apache.activemq.artemis.api.jms.ActiveMQJMSClient;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
 /**
- * This example demonstrates how ActiveMQ Artemis consumers can be configured to not buffer any messages from
+ * This example demonstrates how Apache Artemis consumers can be configured to not buffer any messages from
  * the server.
  */
 public class NoConsumerBufferingExample {

@@ -34,7 +34,7 @@ import org.apache.activemq.artemis.api.core.management.ResourceNames;
 import org.apache.activemq.artemis.api.core.FilterConstants;
 
 /**
- * An example that shows how to manage ActiveMQ Artemis using JMS messages.
+ * An example that shows how to manage Apache Artemis using JMS messages.
  */
 public class ManagementExample {
 

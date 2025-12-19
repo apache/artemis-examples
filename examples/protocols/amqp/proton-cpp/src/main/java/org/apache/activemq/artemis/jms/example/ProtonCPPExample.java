@@ -28,7 +28,7 @@ import javax.naming.InitialContext;
 import org.apache.qpid.jms.JmsConnectionFactory;
 
 /**
- * This example demonstrates the use of ActiveMQ Artemis "pre-acknowledge" functionality where
+ * This example demonstrates the use of Apache Artemis "pre-acknowledge" functionality where
  * messages are acknowledged before they are delivered to the consumer.
  * <p>
  * Please see the readme for more details.
@@ -82,7 +82,7 @@ public class ProtonCPPExample {
                   System.out.println("message received: " + messageReceived.getText());
 
                   // Sending message back to client
-                  producerAnswer.send(session.createTextMessage("HELLO from Apache ActiveMQ Artemis " + i + "!!"));
+                  producerAnswer.send(session.createTextMessage("HELLO from Apache Apache Artemis " + i + "!!"));
                }
             } catch (Throwable e) {
                e.printStackTrace();

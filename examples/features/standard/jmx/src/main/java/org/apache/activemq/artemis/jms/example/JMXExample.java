@@ -39,7 +39,7 @@ import org.apache.activemq.artemis.api.core.management.ObjectNameBuilder;
 import org.apache.activemq.artemis.api.core.management.QueueControl;
 
 /**
- * An example that shows how to manage ActiveMQ Artemis using JMX.
+ * An example that shows how to manage Apache Artemis using JMX.
  */
 public class JMXExample {
 

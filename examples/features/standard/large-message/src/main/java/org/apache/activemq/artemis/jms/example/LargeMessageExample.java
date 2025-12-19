@@ -34,7 +34,7 @@ import java.io.IOException;
 import org.apache.activemq.artemis.util.ServerUtil;
 
 /**
- * This example demonstrates the ability of ActiveMQ Artemis to send and consume a very large message, much
+ * This example demonstrates the ability of Apache Artemis to send and consume a very large message, much
  * bigger than can fit in RAM.
  */
 public class LargeMessageExample {

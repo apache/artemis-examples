@@ -33,7 +33,7 @@ import org.apache.activemq.artemis.spi.core.security.ActiveMQJAASSecurityManager
 import org.apache.activemq.artemis.spi.core.security.jaas.InVMLoginModule;
 
 /**
- * This example demonstrates how to run an embedded ActiveMQ Artemis broker with external file configuration
+ * This example demonstrates how to run an embedded Apache Artemis broker with external file configuration
  */
 public class EmbeddedExample {
 

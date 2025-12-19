@@ -27,7 +27,7 @@ import java.nio.charset.StandardCharsets;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
 /**
- * This example demonstrates how to run an ActiveMQ Artemis embedded with JMS
+ * This example demonstrates how to run an Apache Artemis embedded with JMS
  */
 public class StompEmbeddedWithInterceptorExample {
 
