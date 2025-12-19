@@ -6,7 +6,7 @@ To run the example, simply type **mvn verify** from this directory, or **mvn -Pn
 
 This example demonstrates how Apache Artemis connections can be configured to be resilient to temporary network failures.
 
-In the case of a network failure being detected, either as a result of a failure to read/write to the connection, or the failure of a pong to arrive back from the broker in good time after a ping is sent, instead of failing the connection immediately and notifying any user ExceptionListener objects, ActiveMQ can be configured to automatically retry the connection, and reattach to the broker when it becomes available again across the network.
+In the case of a network failure being detected, either as a result of a failure to read/write to the connection, or the failure of a pong to arrive back from the broker in good time after a ping is sent, instead of failing the connection immediately and notifying any user ExceptionListener objects, Artemis can be configured to automatically retry the connection, and reattach to the broker when it becomes available again across the network.
 
 When the client reattaches to the broker it will be able to resume using its sessions and connections where it left off
 

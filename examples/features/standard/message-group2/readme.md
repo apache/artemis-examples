@@ -13,4 +13,4 @@ Message groups are sets of messages that has the following characteristics:
 
 You can make any message belong to a message group by setting a 'group-id' on the connection factory. All producers created via this connection factory will set that group id on its messages. In this example we set the group id 'Group-0'on a connection factory and send messages via 2 different producers and check that only 1 consumer receives them.
 
-Alternatively, ActiveMQ's connection factories can be configured to _auto group_ messages. By setting `autoGroup=true` in the client's URL a random unique id will be picked to create a message group. _Every messages_ sent by a producer created from this connection factory will automatically be part of this message group.
+Alternatively, Artemis connection factories can be configured to _auto group_ messages. By setting `autoGroup=true` in the client's URL a random unique id will be picked to create a message group. _Every messages_ sent by a producer created from this connection factory will automatically be part of this message group.

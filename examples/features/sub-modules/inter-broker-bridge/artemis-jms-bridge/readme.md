@@ -1,4 +1,4 @@
-# Artemis to 5.x JMS Bridge
+# Apache Artemis to ActiveMQ 5.x JMS Bridge
 
 This is an example of using the JMS bridge shipped with the Artemis broker to bridge to a 5.x broker.
 

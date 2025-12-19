@@ -2,7 +2,7 @@
 
 Apache Artemis is a multi protocol broker. It will inspect the initial handshake of clients to determine what protocol to use.
 
-All you need to do is to connect a client into ActiveMQ's configured port and you should be able connect.
+All you need to do is to connect a client into Artemis configured port supporting AMQP.
 
 To run this example simply run the command **mvn verify -Pexample**, execute the compile.sh script and start the executable called ./hello
 
@@ -23,7 +23,7 @@ You don't need to do anything special to configure the Apache Artemis broker to 
 
 Just for the sake of documentation though we are setting the port of Apache Artemis on this example as 5672 which is the port qpid have by default.
 
-This is totally optional and you don't need to follow this convention. You can use any port you chose including ActiveMQ's 61616 default port:
+This is totally optional and you don't need to follow this convention. You can use any port you chose including Artemis 61616 default port:
 
     <acceptor name="proton-acceptor">tcp://localhost:5672</acceptor>
 

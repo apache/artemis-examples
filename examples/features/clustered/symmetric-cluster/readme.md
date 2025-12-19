@@ -14,7 +14,7 @@ With a symmetric cluster, the cluster is homogeneous, i.e. each node is configur
 
 By connecting node in such a way, we can, from a JMS point of view, give the impression of distributed JMS queues and topics.
 
-The configuration used in this example is very similar to the configuration used by ActiveMQ when installed as a clustered profile in JBoss Application Server.
+The configuration used in this example is very similar to the configuration used by Apache Artemis when installed as a clustered profile in JBoss Application Server.
 
 To set up Apache Artemis to form a symmetric cluster we simply need to mark each broker as `clustered` and we need to define a `cluster-connection` in `broker.xml`.
 
