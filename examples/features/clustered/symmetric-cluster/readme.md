@@ -4,9 +4,9 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This examples demonstrates a **symmetric cluster** set-up with ActiveMQ Artemis.
+This examples demonstrates a **symmetric cluster** set-up with Apache Artemis.
 
-ActiveMQ Artemis has extremely flexible clustering which allows you to set-up servers in many different topologies.
+Apache Artemis has extremely flexible clustering which allows you to set-up servers in many different topologies.
 
 The most common topology that you'll perhaps be familiar with if you are used to application broker clustering is a **symmetric cluster**.
 
@@ -16,7 +16,7 @@ By connecting node in such a way, we can, from a JMS point of view, give the imp
 
 The configuration used in this example is very similar to the configuration used by ActiveMQ when installed as a clustered profile in JBoss Application Server.
 
-To set up ActiveMQ Artemis to form a symmetric cluster we simply need to mark each broker as `clustered` and we need to define a `cluster-connection` in `broker.xml`.
+To set up Apache Artemis to form a symmetric cluster we simply need to mark each broker as `clustered` and we need to define a `cluster-connection` in `broker.xml`.
 
 The `cluster-connection` tells the nodes what other nodes to make connections to. With a `cluster-connection` each node that we connect to can either be specified indivually, or we can use UDP discovery to find out what other nodes are in the cluster.
 
@@ -37,4 +37,4 @@ In this example we create a symmetric cluster of six live nodes.
 
 In this example will we will demonstrate this by deploying a JMS topic and Queue on all nodes of the cluster , sending messages to the queue and topic from different nodes, and verifying messages are received correctly by consumers on different nodes.
 
-For more information on configuring ActiveMQ Artemis clustering in general, please see the clustering section of the user manual.
+For more information on configuring Apache Artemis clustering in general, please see the clustering section of the user manual.

@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows you how to configure a ActiveMQ Artemis queue with static message selectors (filters).
+This example shows you how to configure a Apache Artemis queue with static message selectors (filters).
 
 Static message selectors are ActiveMQ's extension to message selectors as defined in JMS spec 1.1. Rather than specifying the selector in the application code, static message selectors are defined in one of ActiveMQ's configuration files, broker.xml, as an element called `filter` inside each queue definition, like
 

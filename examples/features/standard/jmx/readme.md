@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows how to manage ActiveMQ Artemis using [JMX](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html)
+This example shows how to manage Apache Artemis using [JMX](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html)
 
 ## More information
 

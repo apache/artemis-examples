@@ -11,7 +11,7 @@ This example however is just focusing on integration with 5.x.
 ##Prerequisites
 
 - install ActiveMQ 5.x
-- install ActiveMQ Artemis
+- install Apache Artemis
 
 ##Preparing
 
@@ -62,7 +62,7 @@ This approach might be preferred if for example you only have access to the 5.x 
 ## Prerequisites
 
 - install ActiveMQ 5.x
-- install ActiveMQ Artemis
+- install Apache Artemis
 
 ## Preparing
 
@@ -144,5 +144,5 @@ Send some messages to the ActiveMQ 5.x broker.
 
 `$5X_HOME/bin/activemq producer --user admin --password password --destination queue://TEST.FOO`
 
-Log into the ActiveMQ Artemis console and browse the messages in the `TEST.FOO` queue.
+Log into the Apache Artemis console and browse the messages in the `TEST.FOO` queue.
 

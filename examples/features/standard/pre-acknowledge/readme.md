@@ -14,4 +14,4 @@ The down-side of acknowledging on the broker before delivery, is that if the sys
 
 An example of a use-case where it might be a good idea to use pre-acknowledge, is for stock price update messages. With these messages it might be ok to lose a message in event of crash, since the next price update message will arrive soon, overriding the previous price.
 
-In order to use pre-acknowledge functionality with ActiveMQ Artemis the session has to be created with a special, ActiveMQ Artemis specific acknowledgement mode, given by the value of `ActiveMQJMSConstants.PRE_ACKNOWLEDGE`.
+In order to use pre-acknowledge functionality with Apache Artemis the session has to be created with a special, Apache Artemis specific acknowledgement mode, given by the value of `ActiveMQJMSConstants.PRE_ACKNOWLEDGE`.

@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows you how to use a [QueueRequestor](https://docs.oracle.com/javaee/7/api/javax/jms/QueueRequestor.html) with ActiveMQ Artemis.
+This example shows you how to use a [QueueRequestor](https://docs.oracle.com/javaee/7/api/javax/jms/QueueRequestor.html) with Apache Artemis.
 
 JMS is mainly used to send messages asynchronously so that the producer of a message is not waiting for the result of the message consumption. However, there are cases where it is necessary to have a synchronous behavior: the code sending a message requires a reply for this message before continuing its execution.
 A QueueRequestor facilitates this use case by providing a simple request/reply abstraction on top of JMS.

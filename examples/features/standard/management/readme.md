@@ -4,13 +4,13 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory.
 
-This example shows how to manage ActiveMQ Artemis using JMS Messages to invoke management operations on the server.
+This example shows how to manage Apache Artemis using JMS Messages to invoke management operations on the server.
 
-To manage ActiveMQ Artemis using JMX, see the "jmx" example.
+To manage Apache Artemis using JMX, see the "jmx" example.
 
 ## Example configuration
 
-ActiveMQ Artemis can be managed by sending JMS messages with specific properties to its _management_ queue.
+Apache Artemis can be managed by sending JMS messages with specific properties to its _management_ queue.
 
 By default, the management name is called `activemq.management` but this can be configured in broker.xml like so:
 

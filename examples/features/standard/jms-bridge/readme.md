@@ -4,11 +4,11 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows you how to create a JMS Bridge between two ActiveMQ Artemis brokers.
+This example shows you how to create a JMS Bridge between two Apache Artemis brokers.
 
 ![](jms-bridge.png)
 
-The example will use two ActiveMQ Artemis brokers:
+The example will use two Apache Artemis brokers:
 
 *   Server #0 – the _Source_ broker. It will be configured with a JMS Topic bound to JNDI under `source/topic`
 *   Server #1 – the _Target_ broker. It will be configured with a JMS Queue bound to JNDI under `target/queue`

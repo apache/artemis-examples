@@ -10,4 +10,4 @@ We then create an MQTT subscriber on the queue on each node, and we create a pro
 
 We then send some messages via the producer, and we verify that **both** subscribers receive the sent messages.
 
-For more information on ActiveMQ Artemis clustering please see the clustering section of the user manual.
+For more information on Apache Artemis clustering please see the clustering section of the user manual.

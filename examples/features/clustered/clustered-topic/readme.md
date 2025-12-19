@@ -24,4 +24,4 @@ Here's the relevant snippet from the broker configuration, which tells the broke
        <discovery-group-ref discovery-group-name="my-discovery-group"/>
     </cluster-connection>
 
-For more information on ActiveMQ Artemis load balancing, and clustering in general, please see the clustering section of the user manual.
+For more information on Apache Artemis load balancing, and clustering in general, please see the clustering section of the user manual.

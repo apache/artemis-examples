@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example demonstrates a clustered JMS durable subscription. Normally durable subscriptions exist on a single node and can only have one subscriber at any one time, however, with ActiveMQ Artemis it's possible to create durable subscription instances with the same name and client-id on different nodes of the cluster, and consume from them simultaneously. This allows the work of processing messages from a durable subscription to be spread across the cluster in a similar way to how JMS Queues can be load balanced across the cluster
+This example demonstrates a clustered JMS durable subscription. Normally durable subscriptions exist on a single node and can only have one subscriber at any one time, however, with Apache Artemis it's possible to create durable subscription instances with the same name and client-id on different nodes of the cluster, and consume from them simultaneously. This allows the work of processing messages from a durable subscription to be spread across the cluster in a similar way to how JMS Queues can be load balanced across the cluster
 
 In this example we first configure the two nodes to form a cluster, then we then create a durable subscriber with the same name and client-id on both nodes, and we create a producer on only one of the nodes.
 
@@ -24,4 +24,4 @@ The cli create method will define a similar section by default if you use `--clu
         <discovery-group-ref discovery-group-name="my-discovery-group"/>
     </cluster-connection>
 
-For more information on ActiveMQ Artemis load balancing, and clustering in general, please see the "Clusters" chapter of the user manual.
+For more information on Apache Artemis load balancing, and clustering in general, please see the "Clusters" chapter of the user manual.

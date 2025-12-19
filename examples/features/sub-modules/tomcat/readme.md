@@ -1,14 +1,14 @@
-# Apache ActiveMQ Artemis Tomcat Integration JNDI Resources Sample
+# Apache Apache Artemis Tomcat Integration JNDI Resources Sample
 
 This is a Sample Tomcat application showing JNDI resource in tomcat context.xml for ConnectionFactory 
-and Destination for Apache ActiveMQ Artemis.
+and Destination for Apache Apache Artemis.
 
 The sample context.xml used by the tomcat in this example can be found under:
 /src/tomcat7-maven-plugin/resources/context.xml
 
 To run 
 
-start Apache ActiveMQ Artemis on port 61616
+start Apache Apache Artemis on port 61616
  
 then
 

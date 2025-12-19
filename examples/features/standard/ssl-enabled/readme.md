@@ -4,9 +4,9 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows you how to configure SSL with ActiveMQ Artemis to send and receive message.
+This example shows you how to configure SSL with Apache Artemis to send and receive message.
 
-Using SSL can make your messaging applications interact with ActiveMQ Artemis securely. An application can be secured transparently without extra coding effort. To secure your messaging application with SSL, you need to configure connector and acceptor as follows:
+Using SSL can make your messaging applications interact with Apache Artemis securely. An application can be secured transparently without extra coding effort. To secure your messaging application with SSL, you need to configure connector and acceptor as follows:
 
     <acceptor name="netty-ssl-acceptor">tcp://localhost:5500?sslEnabled=true;keyStorePath=server-keystore.jks;keyStorePassword=securepass</acceptor>
 

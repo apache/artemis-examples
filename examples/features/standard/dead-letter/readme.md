@@ -10,7 +10,7 @@ Messages can be delivered unsuccessfully (e.g. if the transacted session used to
 
 To prevent this, messaging systems define dead letter messages: after a specified unsuccessful delivery attempts, the message is removed from the destination and instead routed to a _dead letter address_ where they can be consumed for further investigation.
 
-The example will show how to configure ActiveMQ Artemis to route a message to a dead letter address after 3 unsuccessful delivery attempts.
+The example will show how to configure Apache Artemis to route a message to a dead letter address after 3 unsuccessful delivery attempts.
 
 The example will send 1 message to a queue. We will deliver the message 3 times and rollback the session every time.
 
@@ -29,6 +29,6 @@ _Dead letter addresses_ and _maximum delivery attempts_ are defined in the confi
 
 This configuration will moved dead letter messages from `exampleQueue` to the `deadLetterQueue`.
 
-ActiveMQ Artemis allows to specify either an address or a queue. In this example, we will use a queue to hold the dead letter messages.
+Apache Artemis allows to specify either an address or a queue. In this example, we will use a queue to hold the dead letter messages.
 
 The maximum attempts of delivery is `3`. Once this figure is reached, a message is considered a dead letter message and is moved to the `deadLetterQueue`.

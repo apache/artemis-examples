@@ -4,9 +4,9 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows you how to configure Netty OpenSSL with ActiveMQ Artemis to send and receive message.
+This example shows you how to configure Netty OpenSSL with Apache Artemis to send and receive message.
 
-Using SSL can make your messaging applications interact with ActiveMQ Artemis securely. An application can be secured transparently without extra coding effort.
+Using SSL can make your messaging applications interact with Apache Artemis securely. An application can be secured transparently without extra coding effort.
 Beside using JDK's implementation, Artemis also supports using native OpenSSL provided by Netty.
 To secure your messaging application with Netty's OpenSSL, you need to configure connector and acceptor as follows:
 

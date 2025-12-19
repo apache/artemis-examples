@@ -1,4 +1,4 @@
-# ActiveMQ Artemis Clustering with JGroups Example
+# Apache Artemis Clustering with JGroups Example
 
 If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
 
@@ -12,7 +12,7 @@ We then send some messages via the producer, and we verify that **both** consume
 
 This example uses JNDI to lookup the JMS Queue and ConnectionFactory objects. If you prefer not to use JNDI, these could be instantiated directly.
 
-To enable ActiveMQ Artemis to use JGroups you need to configure JGroups configuration file and make sure it is on the classpath by placing in the configuration directory, the file test-jgroups-file_ping.xml is the configuration used in this exaample
+To enable Apache Artemis to use JGroups you need to configure JGroups configuration file and make sure it is on the classpath by placing in the configuration directory, the file test-jgroups-file_ping.xml is the configuration used in this exaample
 
 You then configure the jgroups file used by the broadcast and discovery groups in the configuration along with the channel name which you want this cluster to share.
 
@@ -33,4 +33,4 @@ You then configure the jgroups file used by the broadcast and discovery groups i
        </discovery-group>
     </discovery-groups>
 
-For more information on ActiveMQ Artemis clustering in general, please see the "Clusters" chapter of the user manual.
+For more information on Apache Artemis clustering in general, please see the "Clusters" chapter of the user manual.

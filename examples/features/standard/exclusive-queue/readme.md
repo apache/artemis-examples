@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows you how to configure ActiveMQ Artemis so all messages are delivered to the same consumer
+This example shows you how to configure Apache Artemis so all messages are delivered to the same consumer
 
 ## ExclusiveQueueExample.java
 

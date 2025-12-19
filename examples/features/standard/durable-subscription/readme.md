@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example demonstrates how to use a durable subscription with ActiveMQ Artemis.
+This example demonstrates how to use a durable subscription with Apache Artemis.
 
 Durable subscriptions are a standard part of JMS, please consult the JMS 1.1 specification for full details.
 

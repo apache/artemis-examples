@@ -10,7 +10,7 @@ We then create a consumer on the queue on each node, and we create a producer on
 
 We then send some messages via the producer, and we verify that **both** consumers receive the sent messages in a round-robin fashion.
 
-In other words, ActiveMQ Artemis **load balances** the sent messages across all consumers on the cluster
+In other words, Apache Artemis **load balances** the sent messages across all consumers on the cluster
 
 This example uses JNDI to lookup the JMS Queue and ConnectionFactory objects. If you prefer not to use JNDI, these could be instantiated directly.
 
@@ -25,4 +25,4 @@ Here's the relevant snippet from the broker configuration, which tells the broke
        <discovery-group-ref discovery-group-name="my-discovery-group"/>
     </cluster-connection>
 
-For more information on ActiveMQ Artemis load balancing, and clustering in general, please see the clustering section of the user manual.
+For more information on Apache Artemis load balancing, and clustering in general, please see the clustering section of the user manual.

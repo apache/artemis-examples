@@ -12,4 +12,4 @@ When a _non-transacted_ JMS session is used, once and only once delivery is not 
 
 It is up to the client to deal with such cases. To ensure once and only once delivery, the client must use transacted JMS sessions (as shown in the "transaction-failover" example).
 
-For more information on ActiveMQ Artemis failover and HA, and clustering in general, please see the clustering section of the user manual.
+For more information on Apache Artemis failover and HA, and clustering in general, please see the clustering section of the user manual.

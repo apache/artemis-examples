@@ -4,9 +4,9 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-With ActiveMQ Artemis you can specify a maximum consume rate at which a JMS MessageConsumer will consume messages. This can be specified when creating or configuring the connection factory. See `jndi.properties`.
+With Apache Artemis you can specify a maximum consume rate at which a JMS MessageConsumer will consume messages. This can be specified when creating or configuring the connection factory. See `jndi.properties`.
 
-If this value is specified then ActiveMQ Artemis will ensure that messages are never consumed at a rate higher than the specified rate. This is a form of consumer _throttling_.
+If this value is specified then Apache Artemis will ensure that messages are never consumed at a rate higher than the specified rate. This is a form of consumer _throttling_.
 
 ## Example step-by-step
 

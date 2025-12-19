@@ -4,8 +4,8 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory.
 
-This examples shows how to setup and run an embedded broker using ActiveMQ Artemis.
+This examples shows how to setup and run an embedded broker using Apache Artemis.
 
-ActiveMQ Artemis was designed using POJOs (Plain Old Java Objects) which means embedding ActiveMQ Artemis in your own application is as simple as instantiating a few objects.
+Apache Artemis was designed using POJOs (Plain Old Java Objects) which means embedding Apache Artemis in your own application is as simple as instantiating a few objects.
 
 This example uses an external configuration file (i.e. broker.xml).

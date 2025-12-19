@@ -4,17 +4,17 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows how to manage ActiveMQ Artemis using [JMX over SSL](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html)
+This example shows how to manage Apache Artemis using [JMX over SSL](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html)
 
 ## Example configuration
 
-ActiveMQ Artemis exposes its managed resources by default on the platform MBeanServer.
+Apache Artemis exposes its managed resources by default on the platform MBeanServer.
 
 To access this MBeanServer remotely, add the following to the management.xml configuration:
 
     <connector connector-port="1099" connector-host="localhost"/>
 
-With these properties, ActiveMQ Artemis broker will be manageable remotely using standard JMX URL on port `1099`.
+With these properties, Apache Artemis broker will be manageable remotely using standard JMX URL on port `1099`.
 
 The various keystore files are generated using the following commands:
 

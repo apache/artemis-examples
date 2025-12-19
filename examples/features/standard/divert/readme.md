@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-ActiveMQ Artemis diverts allow messages to be transparently "diverted" from one address to another with just some simple configuration defined on the broker side.
+Apache Artemis diverts allow messages to be transparently "diverted" from one address to another with just some simple configuration defined on the broker side.
 
 Diverts can be defined to be **exclusive** or **non-exclusive**.
 

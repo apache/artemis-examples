@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example demonstrates how ActiveMQ Artemis can be configured to provide a delayed redelivery in the case where a message needs to be redelivered.
+This example demonstrates how Apache Artemis can be configured to provide a delayed redelivery in the case where a message needs to be redelivered.
 
 Delaying redelivery can often be useful in the case that clients regularly fail or roll-back. Without a delayed redelivery, the system can get into a "thrashing" state, with delivery being attempted, the client rolling back, and delivery being re-attempted ad infinitum in quick succession, using up valuable CPU and network resources.
 

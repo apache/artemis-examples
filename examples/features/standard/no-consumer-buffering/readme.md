@@ -4,11 +4,11 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-By default, ActiveMQ Artemis consumers buffer messages from the broker in a client side buffer before actual delivery actually occurs.
+By default, Apache Artemis consumers buffer messages from the broker in a client side buffer before actual delivery actually occurs.
 
-This improves performance since otherwise every time you called receive() or had processed the last message in a MessageListener onMessage() method, the ActiveMQ Artemis client would have to go the broker to request the next message involving a network round trip for every message reducing performance.
+This improves performance since otherwise every time you called receive() or had processed the last message in a MessageListener onMessage() method, the Apache Artemis client would have to go the broker to request the next message involving a network round trip for every message reducing performance.
 
-Therefore, by default, ActiveMQ Artemis pre-fetches messages into a buffer on each consumer. The total maximum size of messages in bytes that will be buffered on each consumer is determined by the `consumerWindowSize` parameter on the connection URL.
+Therefore, by default, Apache Artemis pre-fetches messages into a buffer on each consumer. The total maximum size of messages in bytes that will be buffered on each consumer is determined by the `consumerWindowSize` parameter on the connection URL.
 
 In some cases it is not desirable to buffer any messages on the client side consumer.
 
@@ -18,7 +18,7 @@ If orders were buffered in each consumer, and a new consumer was added that cons
 
 To turn off client side buffering of messages, set `consumerWindowSize` to zero.
 
-With ActiveMQ Artemis you can specify a maximum consume rate at which a JMS MessageConsumer will consume messages. This can be specified when configuring the connection URL.
+With Apache Artemis you can specify a maximum consume rate at which a JMS MessageConsumer will consume messages. This can be specified when configuring the connection URL.
 
 ## Example step-by-step
 

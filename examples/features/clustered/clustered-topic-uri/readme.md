@@ -20,4 +20,4 @@ This example differs from different-topic as it will use an URI to define the cl
 
     <cluster-connection-uri name="my-cluster" address="uri="multicast://my-discovery-group?messageLoadBalancingType=STRICT;retryInterval=500;connectorName=netty-connector;maxHops=1"/>
 
-For more information on ActiveMQ Artemis load balancing, and clustering in general, please see the clustering section of the user manual.
+For more information on Apache Artemis load balancing, and clustering in general, please see the clustering section of the user manual.

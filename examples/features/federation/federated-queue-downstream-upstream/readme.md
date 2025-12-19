@@ -37,7 +37,7 @@ If US Central and EU East were even priority then the re-direct would be loaded 
 11. And repeat the same on EU West.
 
 
-In other words, we are showing how with Federated Queues, ActiveMQ Artemis **routes**  sent messages to local consumers as priority, but is able to re-route the sent messages to other distant brokers if consumers are attached to those brokers. Decoupling the location where producers and consumers need to be.
+In other words, we are showing how with Federated Queues, Apache Artemis **routes**  sent messages to local consumers as priority, but is able to re-route the sent messages to other distant brokers if consumers are attached to those brokers. Decoupling the location where producers and consumers need to be.
 
 Here's the relevant snippet from the broker configuration, which tells the broker to form a cluster between the two nodes and to load balance the messages between the nodes.
 
@@ -50,4 +50,4 @@ The config that defines the federation you can see in the broker.xml for each br
 ```
 
 
-For more information on ActiveMQ Artemis Federation please see the federation section of the user manual.
+For more information on Apache Artemis Federation please see the federation section of the user manual.

@@ -6,15 +6,15 @@ To run the example, simply type **mvn verify** from this directory, or **mvn -Pn
 
 This example demonstrates a core bridge deployed on one server, which consumes messages from a local queue and forwards them to an address on a second server.
 
-Core bridges are used to create message flows between any two ActiveMQ Artemis servers which are remotely separated. Core bridges are resilient and will cope with temporary connection failure allowing them to be an ideal choice for forwarding over unreliable connections, e.g. a WAN.
+Core bridges are used to create message flows between any two Apache Artemis servers which are remotely separated. Core bridges are resilient and will cope with temporary connection failure allowing them to be an ideal choice for forwarding over unreliable connections, e.g. a WAN.
 
 They can also be configured with an optional filter expression, and will only forward messages that match that filter.
 
 Furthermore they can be configured to use an optional Transformer class. A user-defined Transformer class can be specified which is called at forwarding time. This gives the user the opportunity to transform the message in some ways, e.g. changing its properties or body
 
-ActiveMQ Artemis also includes a **JMS Bridge**. This is similar to a core bridge, but uses the JMS API and can be used to bridge between any two JMS 1.1 compliant messaging systems. The core bridge is limited to bridging between ActiveMQ Artemis instances, but may provide better performance than the JMS bridge. The JMS bridge is covered in a separate example.
+Apache Artemis also includes a **JMS Bridge**. This is similar to a core bridge, but uses the JMS API and can be used to bridge between any two JMS 1.1 compliant messaging systems. The core bridge is limited to bridging between Apache Artemis instances, but may provide better performance than the JMS bridge. The JMS bridge is covered in a separate example.
 
-For more information on bridges, please see the ActiveMQ Artemis user manual.
+For more information on bridges, please see the Apache Artemis user manual.
 
 In this example we will demonstrate a simple sausage factory for aardvarks.
 

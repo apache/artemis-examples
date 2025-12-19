@@ -22,7 +22,7 @@ The following is then carried out:
 
 
 
-In other words, we are showing how with Federated Address, ActiveMQ Artemis **replicates**  sent messages to all addresses and subsequently delivered to all consumers, regardless if the consumer is local or is on a distant broker. Decoupling the location where producers and consumers need to be.
+In other words, we are showing how with Federated Address, Apache Artemis **replicates**  sent messages to all addresses and subsequently delivered to all consumers, regardless if the consumer is local or is on a distant broker. Decoupling the location where producers and consumers need to be.
 
 The config that defines the federation you can see in the broker.xml for each broker is within the following tags. You will note upstreams are different in each as well as the federation name, which has to be globally unique.
 
@@ -33,4 +33,4 @@ The config that defines the federation you can see in the broker.xml for each br
 ```
 
 
-For more information on ActiveMQ Artemis Federation please see the federation section of the user manual.
+For more information on Apache Artemis Federation please see the federation section of the user manual.

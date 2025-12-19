@@ -4,13 +4,13 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows how to configure and use security using ActiveMQ Artemis.
+This example shows how to configure and use security using Apache Artemis.
 
-With security properly configured, ActiveMQ Artemis can restrict client access to its resources, including connection creation, message sending/receiving, etc. This is done by configuring users and roles as well as permissions in the configuration files.
+With security properly configured, Apache Artemis can restrict client access to its resources, including connection creation, message sending/receiving, etc. This is done by configuring users and roles as well as permissions in the configuration files.
 
-ActiveMQ Artemis supports wild-card security configuration. This feature makes security configuration very flexible and enables fine-grained control over permissions in an efficient way.
+Apache Artemis supports wild-card security configuration. This feature makes security configuration very flexible and enables fine-grained control over permissions in an efficient way.
 
-For a full description of how to configure security with ActiveMQ Artemis, please consult the user manual.
+For a full description of how to configure security with Apache Artemis, please consult the user manual.
 
 This example demonstrates how to configure users/roles, how to configure topics with proper permissions using wild-card expressions, and how they take effects in a simple program.
 
@@ -28,7 +28,7 @@ The `artemis-roles.properties` file follows the syntax of <role>=<users> where <
     news-user=frank,sam
     us-user=frank
 
-User name and password consists of a valid account that can be used to establish connections to a ActiveMQ Artemis server, while roles are used in controlling the access privileges against ActiveMQ Artemis topics and queues. You can achieve this control by configuring proper permissions in `broker.xml`, like the following
+User name and password consists of a valid account that can be used to establish connections to a Apache Artemis server, while roles are used in controlling the access privileges against Apache Artemis topics and queues. You can achieve this control by configuring proper permissions in `broker.xml`, like the following
 
     <security-settings>
        <!-- any user can have full control of generic topics -->

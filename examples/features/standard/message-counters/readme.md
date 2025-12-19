@@ -20,6 +20,6 @@ Message counter is configured in the broker configuration file broker.xml:
 
 By default, message counters are not enabled (for performance reason). To enable them, set `message-counter-enabled` to `true`.
 Queues are sampled every 10 seconds by default. For this example we will reduce it to 2 seconds by setting `message-counter-sample-period` to `2000`.
-ActiveMQ Artemis holds in memory the message counters' history for a maximum number of days (10 by default). We can change the number of days the history is kept by setting the `message-counter-max-day-history` parameter.
+Apache Artemis holds in memory the message counters' history for a maximum number of days (10 by default). We can change the number of days the history is kept by setting the `message-counter-max-day-history` parameter.
 
-The sample period and the max day history parameters have a small impact on the performance of ActiveMQ Artemis (the resources taken to sample a queue are not available to the system's normal use). You should set these parameters accordingly to the use and throughput of your messages.
+The sample period and the max day history parameters have a small impact on the performance of Apache Artemis (the resources taken to sample a queue are not available to the system's normal use). You should set these parameters accordingly to the use and throughput of your messages.

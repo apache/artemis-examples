@@ -1,4 +1,4 @@
-# ActiveMQ Artemis MQTT CRL Example
+# Apache Artemis MQTT CRL Example
 
 If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
 

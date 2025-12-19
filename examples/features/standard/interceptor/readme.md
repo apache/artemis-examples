@@ -4,9 +4,9 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows you how to implement and configure a simple incoming, server-side interceptor with ActiveMQ Artemis.
+This example shows you how to implement and configure a simple incoming, server-side interceptor with Apache Artemis.
 
-ActiveMQ Artemis allows an application to use an interceptor to hook into the messaging system. To intercept "core" packets all that needs to be done is to implement the `org.apache.activemq.artemis.api.core.Interceptor` interface.
+Apache Artemis allows an application to use an interceptor to hook into the messaging system. To intercept "core" packets all that needs to be done is to implement the `org.apache.activemq.artemis.api.core.Interceptor` interface.
 
 Once you have your own interceptor class, add it to the broker.xml, as follows:
 

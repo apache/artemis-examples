@@ -5,7 +5,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** 
 if you want to start and create the broker manually.
 
-This example demonstrates the usage of SCRAM-SHA SASL authentication with ActiveMQ Artemis and AMQP clients.
+This example demonstrates the usage of SCRAM-SHA SASL authentication with Apache Artemis and AMQP clients.
 
 Of note is the AMQP acceptor configuration restricting the offered mechanisms to SCRAM-SHA-256, and the reference
 to the login config scope ``amqp-sasl-scram`` that holds the relevant SCRAM login module.

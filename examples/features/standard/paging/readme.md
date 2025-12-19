@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example shows how ActiveMQ Artemis would avoid running out of memory resources by paging messages.
+This example shows how Apache Artemis would avoid running out of memory resources by paging messages.
 
 A maximum size can be specified per address via the address settings in the configuration file (broker.xml).
 

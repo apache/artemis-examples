@@ -1,6 +1,6 @@
 # JMS Clustered Grouping Example
 
-Before continuing please **read the caveats about clustered grouping** in the "Message Grouping" chapter of ActiveMQ Artemis User Guide. In short, **clustered grouping is not recommended**.
+Before continuing please **read the caveats about clustered grouping** in the "Message Grouping" chapter of Apache Artemis User Guide. In short, **clustered grouping is not recommended**.
 
 If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
 

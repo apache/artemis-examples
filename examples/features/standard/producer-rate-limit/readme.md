@@ -4,9 +4,9 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-With ActiveMQ Artemis you can specify a maximum send rate at which a JMS MessageProducer will send messages. This can be specified when creating or deploying the connection factory. See `activemq-jms.xml`
+With Apache Artemis you can specify a maximum send rate at which a JMS MessageProducer will send messages. This can be specified when creating or deploying the connection factory. See `activemq-jms.xml`
 
-If this value is specified then ActiveMQ Artemis will ensure that messages are never produced at a rate higher than specified. This is a form of producer _throttling_.
+If this value is specified then Apache Artemis will ensure that messages are never produced at a rate higher than specified. This is a form of producer _throttling_.
 
 ## Example step-by-step
 

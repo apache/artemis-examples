@@ -6,11 +6,11 @@ To run the example, simply type **mvn verify** from this directory, or **mvn -Pn
 
 This example demonstrates message redistribution between queues with the same name deployed in different nodes of a cluster.
 
-As demontrated in the clustered queue example, if queues with the same name are deployed on different nodes of a cluster, ActiveMQ Artemis can be configured to load balance messages between the nodes on the broker side.
+As demontrated in the clustered queue example, if queues with the same name are deployed on different nodes of a cluster, Apache Artemis can be configured to load balance messages between the nodes on the broker side.
 
 However, if the consumer(s) on a particular node are closed, then messages in the queue at that node can appear to be stranded, since they have no local consumers.
 
-If this is undesirable, ActiveMQ Artemis can be configured to **redistribute** messages from the node with no consumers, to nodes where there are consumers. If the consumers have JMS selectors set on them, then they will only be redistributed to nodes with consumers whose selectors match.
+If this is undesirable, Apache Artemis can be configured to **redistribute** messages from the node with no consumers, to nodes where there are consumers. If the consumers have JMS selectors set on them, then they will only be redistributed to nodes with consumers whose selectors match.
 
 By default, message redistribution is disabled, but can be enabled by specifying some AddressSettings configuration in either `activemq-queues.xml` or `broker.xml`
 
@@ -22,4 +22,4 @@ Here's the relevant snippet from the `activemq-queues.xml` configuration, which 
        <redistribution-delay>0</redistribution-delay>
     </address-setting>
 
-For more information on ActiveMQ Artemis load balancing, and clustering in general, please see the clustering section of the user manual.
+For more information on Apache Artemis load balancing, and clustering in general, please see the clustering section of the user manual.

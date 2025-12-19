@@ -4,7 +4,7 @@ If you have not already done so, [prepare the broker distribution](../../../../R
 
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
-This example demonstrates how ActiveMQ Artemis connections can be configured to be resilient to temporary network failures.
+This example demonstrates how Apache Artemis connections can be configured to be resilient to temporary network failures.
 
 In the case of a network failure being detected, either as a result of a failure to read/write to the connection, or the failure of a pong to arrive back from the broker in good time after a ping is sent, instead of failing the connection immediately and notifying any user ExceptionListener objects, ActiveMQ can be configured to automatically retry the connection, and reattach to the broker when it becomes available again across the network.
 
@@ -18,4 +18,4 @@ We then wait a few seconds, then restart the acceptor. The client reattaches and
 
 The JMS Connection Factory is configured to reattach automatically by specifying the various reconnect related attributes in the connection URL in `jndi.properties`.
 
-For more details on how to configure this and for clustering in general please consult the ActiveMQ Artemis user manual.
+For more details on how to configure this and for clustering in general please consult the Apache Artemis user manual.

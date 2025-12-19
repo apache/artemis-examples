@@ -1,4 +1,4 @@
-#Running the ActiveMQ Artemis JMeter Performance Testing Examples
+#Running the Apache Artemis JMeter Performance Testing Examples
 
 ##Create and run a sample broker for performance testing:
 

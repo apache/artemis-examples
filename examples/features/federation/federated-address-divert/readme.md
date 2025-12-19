@@ -17,4 +17,4 @@ The following is then carried out:
 2. send some messages via the producer on eu-east, and we verify the eu-west consumer receives the messages because of the divert binding demand
 
 
-For more information on ActiveMQ Artemis Federation please see the federation section of the user manual.
+For more information on Apache Artemis Federation please see the federation section of the user manual.

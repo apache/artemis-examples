@@ -1,4 +1,4 @@
-# ActiveMQ Artemis Spring Boot Example
+# Apache Artemis Spring Boot Example
 
 If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
 
