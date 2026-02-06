@@ -44,7 +44,7 @@ The key feature of this example is the use of **distributed locks** to control w
 ```xml
 <lock-coordinators>
    <lock-coordinator name="clients-lock">
-      <type>file</type>
+      <class-name>org.apache.activemq.artemis.lockmanager.file.FileBasedLockManager</class-name>
       <lock-id>mirror-cluster-clients</lock-id>
       <check-period>1000</check-period>
       <properties>
