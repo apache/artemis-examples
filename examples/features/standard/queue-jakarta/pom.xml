@@ -29,16 +29,17 @@ under the License.
 
    <artifactId>queue-jakarta</artifactId>
    <packaging>jar</packaging>
-   <name>Apache Artemis Jakarta Messaging 3.0 Queue Example</name>
+   <name>Apache Artemis Jakarta Messaging 3 Queue Example</name>
 
    <properties>
       <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
+      <jakarta.jms-api.version>${jakarta.jms-api.version.alt}</jakarta.jms-api.version>
    </properties>
 
    <dependencies>
       <dependency>
          <groupId>org.apache.artemis</groupId>
-         <artifactId>artemis-jakarta-client-all</artifactId>
+         <artifactId>artemis-jakarta-client</artifactId>
          <version>${project.version}</version>
       </dependency>
    </dependencies>
@@ -56,10 +57,10 @@ under the License.
                      <goal>dependency-scan</goal>
                   </goals>
                   <configuration>
-                     <libList>
-                        <arg>org.apache.artemis:artemis-jakarta-client-all:${project.version}</arg>
+                     <libListWithDeps>
+                        <arg>org.apache.artemis:artemis-jakarta-client:${project.version}</arg>
                         <arg>org.apache.artemis.examples.broker:queue-jakarta:${project.version}</arg>
-                     </libList>
+                     </libListWithDeps>
                      <variableName>ARTEMIS-JAKARTA</variableName>
                   </configuration>
                </execution>

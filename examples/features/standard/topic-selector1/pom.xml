@@ -38,7 +38,7 @@ under the License.
    <dependencies>
       <dependency>
          <groupId>org.apache.artemis</groupId>
-         <artifactId>artemis-jms-client-all</artifactId>
+         <artifactId>artemis-jms-client</artifactId>
          <version>${project.version}</version>
       </dependency>
    </dependencies>

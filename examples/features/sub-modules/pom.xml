@@ -44,11 +44,22 @@ under the License.
    </properties>
 
    <profiles>
-      <!-- The modules examples need to be executed manually,
-           for that reason we won't provide an examples profile here to execute all of them at once -->
+      <profile>
+         <id>examples</id>
+         <modules>
+            <module>queue-artemis-jakarta-client-all</module>
+            <module>queue-artemis-jms-client-all</module>
+         </modules>
+      </profile>
+
       <profile>
          <id>release</id>
          <modules>
+            <module>queue-artemis-jakarta-client-all</module>
+            <module>queue-artemis-jms-client-all</module>
+
+            <!-- The below examples need to be executed manually, so we don't provide
+                 an 'examples' profile entry for them to execute all of them at once -->
             <module>artemis-jakarta-ra-rar</module>
             <module>artemis-ra-rar</module>
             <module>inter-broker-bridge</module>

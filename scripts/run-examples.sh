@@ -185,3 +185,7 @@ cd amqp-federation-queue-multiple-brokers; mvn verify; cd ..
 cd amqp-federation-queue-pull-messages; mvn verify; cd ..
 cd amqp-bridge; mvn verify; cd ..
 
+cd $ARTEMIS_EXAMPLES_ROOT/examples/features/sub-modules/
+cd queue-artemis-jakarta-client-all; mvn verify; cd ..
+cd queue-artemis-jms-client-all; mvn verify; cd ..
+
