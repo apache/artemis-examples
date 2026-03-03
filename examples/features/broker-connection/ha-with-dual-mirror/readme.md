@@ -1,4 +1,4 @@
-# High Availability with Mirroring and Distributed Locks
+# High Availability with Dual Mirror and Distributed Locks
 
 To run the example, simply type **mvn verify** from this directory.
 

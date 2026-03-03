@@ -62,7 +62,8 @@ under the License.
             <module>amqp-federation-queue-pull-messages</module>
             <module>amqp-bridge</module>
             <module>disaster-recovery</module>
-            <module>ha-with-mirroring</module>
+            <module>ha-with-dual-mirror</module>
+            <module>ha-with-star-mirror</module>
          </modules>
       </profile>
       <profile>
@@ -83,7 +84,8 @@ under the License.
             <module>amqp-federation-queue-pull-messages</module>
             <module>amqp-bridge</module>
             <module>disaster-recovery</module>
-            <module>ha-with-mirroring</module>
+            <module>ha-with-dual-mirror</module>
+            <module>ha-with-star-mirror</module>
          </modules>
       </profile>
    </profiles>

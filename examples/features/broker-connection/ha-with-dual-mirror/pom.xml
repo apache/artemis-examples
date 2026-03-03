@@ -27,9 +27,9 @@ under the License.
       <version>2.53.0-SNAPSHOT</version>
    </parent>
 
-   <artifactId>ha-with-mirroring</artifactId>
+   <artifactId>ha-with-dual-mirror</artifactId>
    <packaging>jar</packaging>
-   <name>Apache Artemis Example - HA with Mirroring</name>
+   <name>Apache Artemis Example - HA with Dual Mirror</name>
 
    <properties>
       <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
@@ -88,7 +88,7 @@ under the License.
                      <goal>runClient</goal>
                   </goals>
                   <configuration>
-                     <clientClass>org.apache.artemis.jms.example.HAWithMirroringExample</clientClass>
+                     <clientClass>org.apache.artemis.jms.example.HAWithDualMirrorExample</clientClass>
                      <args>
                         <param>${basedir}/target/server0</param>
                         <param>${basedir}/target/server1</param>
@@ -99,7 +99,7 @@ under the License.
             <dependencies>
                <dependency>
                   <groupId>org.apache.artemis.examples.broker-connection</groupId>
-                  <artifactId>ha-with-mirroring</artifactId>
+                  <artifactId>ha-with-dual-mirror</artifactId>
                   <version>${project.version}</version>
                </dependency>
             </dependencies>

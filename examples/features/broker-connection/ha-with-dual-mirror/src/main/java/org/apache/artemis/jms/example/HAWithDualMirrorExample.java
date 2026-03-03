@@ -32,7 +32,7 @@ import org.apache.activemq.artemis.utils.FileUtil;
 /**
  * Example of live and replicating backup pair using mirroring and a distributed lock from the Lock Coordinator
  */
-public class HAWithMirroringExample {
+public class HAWithDualMirrorExample {
 
    private static Process server0;
 
@@ -49,9 +49,9 @@ public class HAWithMirroringExample {
       try {
 
          // Start the two servers
-         server0 = ServerUtil.startServer(args[0], HAWithMirroringExample.class.getSimpleName() + "-peer0", 0, 0);
+         server0 = ServerUtil.startServer(args[0], HAWithDualMirrorExample.class.getSimpleName() + "-peer0", 0, 0);
          Thread.sleep(2_000);
-         server1 = ServerUtil.startServer(args[1], HAWithMirroringExample.class.getSimpleName() + "-peer1", 1, 0);
+         server1 = ServerUtil.startServer(args[1], HAWithDualMirrorExample.class.getSimpleName() + "-peer1", 1, 0);
 
          // We connect to the broker holding the lock on the distributed lock
          ConnectionFactory factory = new org.apache.qpid.jms.JmsConnectionFactory(
