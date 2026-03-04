@@ -29,7 +29,7 @@ under the License.
 
    <artifactId>ha-with-dual-mirror</artifactId>
    <packaging>jar</packaging>
-   <name>Apache Artemis Example - HA with Dual Mirror</name>
+   <name>Apache Artemis Example - HA with Mirroring</name>
 
    <properties>
       <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
@@ -54,60 +54,189 @@ under the License.
    <build>
       <plugins>
          <plugin>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>create0</id>
-                  <goals>
-                     <goal>create</goal>
-                  </goals>
-                  <configuration>
-                     <!-- this makes it easier in certain envs -->
-                     <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
-                     <instance>${basedir}/target/server0</instance>
-                     <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/artemis/server0</configuration>
-                  </configuration>
-               </execution>
-               <execution>
-                  <id>create1</id>
-                  <goals>
-                     <goal>create</goal>
-                  </goals>
-                  <configuration>
-                     <!-- this makes it easier in certain envs -->
-                     <instance>${basedir}/target/server1</instance>
-                     <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/artemis/server1</configuration>
-                  </configuration>
-               </execution>
-               <execution>
-                  <id>runClient</id>
-                  <goals>
-                     <goal>runClient</goal>
-                  </goals>
-                  <configuration>
-                     <clientClass>org.apache.artemis.jms.example.HAWithDualMirrorExample</clientClass>
-                     <args>
-                        <param>${basedir}/target/server0</param>
-                        <param>${basedir}/target/server1</param>
-                     </args>
-                  </configuration>
-               </execution>
-            </executions>
-            <dependencies>
-               <dependency>
-                  <groupId>org.apache.artemis.examples.broker-connection</groupId>
-                  <artifactId>ha-with-dual-mirror</artifactId>
-                  <version>${project.version}</version>
-               </dependency>
-            </dependencies>
-         </plugin>
-         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-clean-plugin</artifactId>
          </plugin>
       </plugins>
    </build>
+
+   <profiles>
+      <profile>
+         <id>create</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.artemis</groupId>
+                  <artifactId>artemis-maven-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>create0</id>
+                        <goals>
+                           <goal>create</goal>
+                        </goals>
+                        <configuration>
+                           <!-- this makes it easier in certain envs -->
+                           <instance>${basedir}/target/server0</instance>
+                           <allowAnonymous>true</allowAnonymous>
+                           <configuration>${basedir}/target/classes/artemis/server0</configuration>
+                        </configuration>
+                     </execution>
+                     <execution>
+                        <id>create1</id>
+                        <goals>
+                           <goal>create</goal>
+                        </goals>
+                        <configuration>
+                           <!-- this makes it easier in certain envs -->
+                           <instance>${basedir}/target/server1</instance>
+                           <allowAnonymous>true</allowAnonymous>
+                           <configuration>${basedir}/target/classes/artemis/server1</configuration>
+                        </configuration>
+                     </execution>
+                     <execution>
+                        <id>runClient</id>
+                        <goals>
+                           <goal>runClient</goal>
+                        </goals>
+                        <configuration>
+                           <clientClass>org.apache.artemis.jms.example.CreateServers</clientClass>
+                           <args>
+                              <param>${basedir}/target/server0</param>
+                              <param>${basedir}/target/server1</param>
+                           </args>
+                        </configuration>
+                     </execution>
+                  </executions>
+                  <dependencies>
+                     <dependency>
+                        <groupId>org.apache.artemis.examples.broker-connection</groupId>
+                        <artifactId>ha-with-mirroring-interactive</artifactId>
+                        <version>${project.version}</version>
+                     </dependency>
+                  </dependencies>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>automated</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.artemis</groupId>
+                  <artifactId>artemis-maven-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>create0</id>
+                        <goals>
+                           <goal>create</goal>
+                        </goals>
+                        <configuration>
+                           <!-- this makes it easier in certain envs -->
+                           <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
+                           <instance>${basedir}/target/server0</instance>
+                           <allowAnonymous>true</allowAnonymous>
+                           <configuration>${basedir}/target/classes/artemis/server0</configuration>
+                        </configuration>
+                     </execution>
+                     <execution>
+                        <id>create1</id>
+                        <goals>
+                           <goal>create</goal>
+                        </goals>
+                        <configuration>
+                           <!-- this makes it easier in certain envs -->
+                           <instance>${basedir}/target/server1</instance>
+                           <allowAnonymous>true</allowAnonymous>
+                           <configuration>${basedir}/target/classes/artemis/server1</configuration>
+                        </configuration>
+                     </execution>
+                     <execution>
+                        <id>runClient</id>
+                        <goals>
+                           <goal>runClient</goal>
+                        </goals>
+                        <configuration>
+                           <clientClass>org.apache.artemis.jms.example.HAWithDualMirrorExample</clientClass>
+                           <args>
+                              <param>${basedir}/target/server0</param>
+                              <param>${basedir}/target/server1</param>
+                           </args>
+                        </configuration>
+                     </execution>
+                  </executions>
+                  <dependencies>
+                     <dependency>
+                        <groupId>org.apache.artemis.examples.broker-connection</groupId>
+                        <artifactId>ha-with-dual-mirror</artifactId>
+                        <version>${project.version}</version>
+                     </dependency>
+                  </dependencies>
+               </plugin>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-clean-plugin</artifactId>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>producer</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.artemis</groupId>
+                  <artifactId>artemis-maven-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>runClient</id>
+                        <goals>
+                           <goal>runClient</goal>
+                        </goals>
+                        <configuration>
+                           <clientClass>org.apache.artemis.jms.example.Producer</clientClass>
+                        </configuration>
+                     </execution>
+                  </executions>
+                  <dependencies>
+                     <dependency>
+                        <groupId>org.apache.artemis.examples.broker-connection</groupId>
+                        <artifactId>ha-with-dual-mirror</artifactId>
+                        <version>${project.version}</version>
+                     </dependency>
+                  </dependencies>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>consumer</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.artemis</groupId>
+                  <artifactId>artemis-maven-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>runClient</id>
+                        <goals>
+                           <goal>runClient</goal>
+                        </goals>
+                        <configuration>
+                           <clientClass>org.apache.artemis.jms.example.Consumer</clientClass>
+                        </configuration>
+                     </execution>
+                  </executions>
+                  <dependencies>
+                     <dependency>
+                        <groupId>org.apache.artemis.examples.broker-connection</groupId>
+                        <artifactId>ha-with-dual-mirror</artifactId>
+                        <version>${project.version}</version>
+                     </dependency>
+                  </dependencies>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
 </project>

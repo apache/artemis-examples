@@ -86,7 +86,6 @@ under the License.
             <dead-letter-address>DLQ</dead-letter-address>
             <expiry-address>ExpiryQueue</expiry-address>
             <redelivery-delay>0</redelivery-delay>
-            <!-- with -1 only the global-max-size is in use for limiting -->
             <max-size-bytes>-1</max-size-bytes>
             <message-counter-history-day-limit>10</message-counter-history-day-limit>
             <address-full-policy>PAGE</address-full-policy>
@@ -98,20 +97,8 @@ under the License.
             <dead-letter-address>DLQ</dead-letter-address>
             <expiry-address>ExpiryQueue</expiry-address>
             <redelivery-delay>0</redelivery-delay>
-            <!-- with -1 only the global-max-size is in use for limiting -->
-            <max-size-bytes>-1</max-size-bytes>
-            <message-counter-history-day-limit>10</message-counter-history-day-limit>
-            <address-full-policy>PAGE</address-full-policy>
-            <auto-create-queues>true</auto-create-queues>
-            <auto-create-addresses>true</auto-create-addresses>
-         </address-setting>
-         <address-setting match="exampleQueue">
-            <dead-letter-address>DLQ</dead-letter-address>
-            <expiry-address>ExpiryQueue</expiry-address>
-            <redelivery-delay>0</redelivery-delay>
-            <!-- with -1 only the global-max-size is in use for limiting -->
-            <max-size-bytes>-1</max-size-bytes>
-            <default-max-consumers>1</default-max-consumers>
+            <max-size-bytes>10MB</max-size-bytes>
+            <max-size-messages>5000</max-size-messages>
             <message-counter-history-day-limit>10</message-counter-history-day-limit>
             <address-full-policy>PAGE</address-full-policy>
             <auto-create-queues>true</auto-create-queues>

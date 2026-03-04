@@ -58,13 +58,15 @@ under the License.
 
       <broker-connections>
          <amqp-connection uri="tcp://localhost:61001" name="mirrorB" retry-interval="2000" lock-coordinator="clients-lock">
-            <mirror sync="true"/>
+            <mirror sync="false"/>
          </amqp-connection>
          <amqp-connection uri="tcp://localhost:61002" name="mirrorC" retry-interval="2000" lock-coordinator="clients-lock">
-            <mirror sync="true"/>
+            <mirror sync="false"/>
          </amqp-connection>
       </broker-connections>
 
+      <mirror-ack-manager-page-attempts>20</mirror-ack-manager-page-attempts>
+      <mirror-ack-manager-queue-attempts>20</mirror-ack-manager-queue-attempts>
 
       <security-settings>
          <security-setting match="#">
@@ -101,19 +103,8 @@ under the License.
             <expiry-address>ExpiryQueue</expiry-address>
             <redelivery-delay>0</redelivery-delay>
             <!-- with -1 only the global-max-size is in use for limiting -->
-            <max-size-bytes>-1</max-size-bytes>
-            <message-counter-history-day-limit>10</message-counter-history-day-limit>
-            <address-full-policy>PAGE</address-full-policy>
-            <auto-create-queues>true</auto-create-queues>
-            <auto-create-addresses>true</auto-create-addresses>
-         </address-setting>
-         <address-setting match="exampleQueue">
-            <dead-letter-address>DLQ</dead-letter-address>
-            <expiry-address>ExpiryQueue</expiry-address>
-            <redelivery-delay>0</redelivery-delay>
-            <!-- with -1 only the global-max-size is in use for limiting -->
-            <max-size-bytes>-1</max-size-bytes>
-            <default-max-consumers>1</default-max-consumers>
+            <max-size-bytes>10MB</max-size-bytes>
+            <max-size-messages>5000</max-size-messages>
             <message-counter-history-day-limit>10</message-counter-history-day-limit>
             <address-full-policy>PAGE</address-full-policy>
             <auto-create-queues>true</auto-create-queues>

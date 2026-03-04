@@ -1,7 +1,5 @@
 # High Availability with Star Mirror and Distributed Locks
 
-To run the example, simply type **mvn verify** from this directory.
-
 This example demonstrates how to achieve high availability (HA) using star topology mirroring combined with distributed locks from the Lock Coordinator feature. The distributed locks ensure that only one broker accepts client connections at a time, providing automatic failover without split-brain scenarios across three brokers.
 
 ## Overview
@@ -88,11 +86,11 @@ The lock coordinator ensures that:
 
 ### Client Failover
 
-Clients connect using a failover URL. In this simplified example, all three brokers share the same client port (61616) but only the active one accepts connections:
+Clients connect using a failover URL that includes all three broker addresses:
 
 ```java
 ConnectionFactory factory = new org.apache.qpid.jms.JmsConnectionFactory(
-   "failover:(amqp://localhost:61616)?failover.maxReconnectAttempts=-1");
+   "failover:(amqp://localhost:61616,amqp://localhost:61617,amqp://localhost:61618)?failover.maxReconnectAttempts=-1");
 ```
 
 When the active broker (holding the lock) fails:
@@ -100,6 +98,111 @@ When the active broker (holding the lock) fails:
 2. One of the backup brokers acquires the lock and starts accepting connections
 3. The client automatically reconnects to the now-active broker
 4. All messages are available due to star mirroring
+
+## Setup
+
+### Create the Servers
+
+You have the following options to run this example:
+
+### Non-interactive way
+
+You can run this example in a non-interactive way, with HAWithStarMirrorExample starting, stopping the servers, and consume messages from your servers during failover.
+
+```shell
+mvn verify -Pautomated
+```
+
+### Manual Execution
+
+Start each server individually in separate terminals:
+
+```shell
+# Install servers
+mvn install -Pcreate
+
+# Terminal 1 - Start server0
+cd target/server0/bin
+./artemis run
+
+# Terminal 2 - qstat on server0 (for better visualization)
+cd target/server0/bin
+./artemis queue stat --sleep 1000
+
+# Terminal 3 - Start server1
+cd target/server1/bin
+./artemis run
+
+# Terminal 4 - qstat on server1 (for better visualization)
+cd target/server1/bin
+./artemis queue stat --sleep 1000
+
+# Terminal 5 - Start server2
+cd target/server2/bin
+./artemis run
+
+# Terminal 6 - qstat on server2 (for better visualization)
+cd target/server2/bin
+./artemis queue stat --sleep 1000
+
+# Terminal 7 - Start producer
+mvn install -Pproducer
+
+# Terminal 8 - Start consumer
+mvn install -Pconsumer
+```
+
+### Screen Automation (Linux only)
+
+For a better visual experience, use GNU Screen to automatically layout the terminals.
+
+**Requirements:** Install screen on your Linux machine:
+```shell
+sudo dnf install screen  # Fedora/RHEL
+# or
+sudo apt install screen  # Debian/Ubuntu
+```
+
+**Start the servers:**
+```shell
+./screen-servers.sh
+```
+
+This will display:
+- Server0, Server1, and Server2 running in the left column
+- Queue statistics for all three servers in the right column
+
+![Servers Running](src/main/resources/images/servers-running.png)
+
+**Start the clients:**
+```shell
+./screen-clients.sh
+```
+
+This will display:
+- Consumer in the top pane
+- Producer in the bottom pane
+
+![Clients Running](src/main/resources/images/clients-running.png)
+
+## Testing Failover
+
+To observe the high availability in action:
+
+1. Watch the producer sending messages and the consumer receiving them
+2. Kill one of the servers (Ctrl+C in its terminal)
+3. Observe that:
+   - The client automatically reconnects to the surviving broker
+   - Message flow continues without interruption
+   - All messages are preserved due to mirroring
+   - Interrupt consumers and see how message accumulation will affect mirroring and how messages are replayed after mirrors reconnect.
+4. Restart the killed server and observe it reconnecting to each other.
+
+## What to Observe
+
+- **Lock Acquisition**: Only one broker will accept client connections at a time (the one holding the distributed lock)
+- **Mirroring**: Messages sent to one broker are replicated to the others
+- **Automatic Failover**: When the active broker fails, clients automatically reconnect to one of the backup brokers
 
 ## Example Flow
 
