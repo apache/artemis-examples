@@ -73,6 +73,8 @@ public class HAWithStarMirrorExample {
             }
             session.commit();
 
+            Thread.sleep(5000); // we are using async mirror, will wait some time
+
             // kill the server that was probably holding the lock:
             ServerUtil.killServer(server0);
 
@@ -97,7 +99,7 @@ public class HAWithStarMirrorExample {
       }
    }
 
-   private static void configureLocksFolder(String[] args) throws Exception {
+   public static void configureLocksFolder(String[] args) throws Exception {
       File lockFolder = new File("./target/locks");
       lockFolder.mkdirs();
       FileUtil.findReplace(new File(args[0] + "/etc/broker.xml"), "CHANGEME", lockFolder.getAbsolutePath());
