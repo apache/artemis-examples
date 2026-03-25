@@ -110,7 +110,7 @@ under the License.
                   <dependencies>
                      <dependency>
                         <groupId>org.apache.artemis.examples.broker-connection</groupId>
-                        <artifactId>ha-with-mirroring-interactive</artifactId>
+                        <artifactId>ha-with-dual-mirror</artifactId>
                         <version>${project.version}</version>
                      </dependency>
                   </dependencies>
