@@ -68,6 +68,7 @@ public class StompDualAuthenticationExample {
          String text = "Hello, world from Stomp!";
          String message = "SEND\n" +
             "destination: exampleQueue\n" +
+            "destination-type: ANYCAST\n" +
             "\n" +
             text +
             END_OF_FRAME;
