@@ -54,6 +54,8 @@ under the License.
             <filter string="name='aardvark'"/>
             <transformer-class-name>org.apache.activemq.artemis.jms.example.HatColourChangeTransformer</transformer-class-name>
             <reconnect-attempts>-1</reconnect-attempts>
+            <user>my-bridge-user</user>
+            <password>my-bridge-password</password>
             <static-connectors>
                <connector-ref>remote-connector</connector-ref>
             </static-connectors>
