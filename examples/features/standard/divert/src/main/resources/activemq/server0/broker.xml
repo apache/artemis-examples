@@ -74,6 +74,8 @@ under the License.
             <queue-name>priceForwarding</queue-name>
             <forwarding-address>newYorkPriceUpdates</forwarding-address>
             <reconnect-attempts>-1</reconnect-attempts>
+            <user>my-bridge-user</user>
+            <password>my-bridge-password</password>
             <static-connectors>
                <connector-ref>newyork-connector</connector-ref>
             </static-connectors>

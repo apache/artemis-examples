@@ -41,6 +41,9 @@
          <acceptor name="netty-acceptor">tcp://localhost:61616</acceptor>
       </acceptors>
 
+      <cluster-user>my-cluster-user</cluster-user>
+      <cluster-password>my-cluster-password</cluster-password>
+
       <cluster-connections>
          <cluster-connection name="my-cluster">
             <connector-ref>netty-connector</connector-ref>
