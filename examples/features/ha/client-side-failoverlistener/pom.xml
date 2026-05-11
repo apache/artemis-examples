@@ -67,6 +67,12 @@ under the License.
                      <sharedStore>true</sharedStore>
                      <slave>false</slave>
                      <failoverOnShutdown>true</failoverOnShutdown>
+                     <args>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
+                     </args>
                   </configuration>
                </execution>
                <execution>
@@ -82,6 +88,12 @@ under the License.
                      <sharedStore>true</sharedStore>
                      <slave>true</slave>
                      <portOffset>1</portOffset>
+                     <args>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
+                     </args>
                   </configuration>
                </execution>
                <execution>
