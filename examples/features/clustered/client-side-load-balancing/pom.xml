@@ -61,6 +61,10 @@ under the License.
                      <args>
                         <arg>--queues</arg>
                         <arg>exampleQueue</arg>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
                      </args>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
@@ -81,6 +85,10 @@ under the License.
                      <args>
                         <arg>--queues</arg>
                         <arg>exampleQueue</arg>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
                      </args>
                   </configuration>
                </execution>
@@ -99,6 +107,10 @@ under the License.
                      <args>
                         <arg>--queues</arg>
                         <arg>exampleQueue</arg>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
                      </args>
                   </configuration>
                </execution>

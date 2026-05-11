@@ -66,6 +66,12 @@ under the License.
                      <slave>false</slave>
                      <dataFolder>../data</dataFolder>
                      <failoverOnShutdown>true</failoverOnShutdown>
+                     <args>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
+                     </args>
                   </configuration>
                </execution>
                <execution>
@@ -81,6 +87,12 @@ under the License.
                      <slave>true</slave>
                      <dataFolder>../data</dataFolder>
                      <failoverOnShutdown>true</failoverOnShutdown>
+                     <args>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
+                     </args>
                   </configuration>
                </execution>
                <execution>
@@ -95,6 +107,12 @@ under the License.
                      <sharedStore>true</sharedStore>
                      <slave>true</slave>
                      <dataFolder>../data</dataFolder>
+                     <args>
+                        <arg>--cluster-user</arg>
+                        <arg>my-cluster-user</arg>
+                        <arg>--cluster-password</arg>
+                        <arg>my-cluster-password</arg>
+                     </args>
                   </configuration>
                </execution>
                <execution>
