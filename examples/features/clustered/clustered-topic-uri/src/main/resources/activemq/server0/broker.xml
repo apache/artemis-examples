@@ -41,28 +41,11 @@ under the License.
 
       <!-- Clustering configuration -->
 
-      <broadcast-groups>
-         <broadcast-group name="my-broadcast-group">
-            <group-address>${udp-address:231.7.7.7}</group-address>
-            <group-port>9876</group-port>
-            <broadcast-period>100</broadcast-period>
-            <connector-ref>netty-connector</connector-ref>
-         </broadcast-group>
-      </broadcast-groups>
-
-      <discovery-groups>
-         <discovery-group name="my-discovery-group">
-            <group-address>${udp-address:231.7.7.7}</group-address>
-            <group-port>9876</group-port>
-            <refresh-timeout>10000</refresh-timeout>
-         </discovery-group>
-      </discovery-groups>
-
       <cluster-user>my-cluster-user</cluster-user>
       <cluster-password>my-cluster-password</cluster-password>
 
       <cluster-connections>
-         <cluster-connection-uri address="multicast://my-discovery-group?messageLoadBalancingType=STRICT;retryInterval=500;connectorName=netty-connector;maxHops=1" name="my-cluster"/>
+         <cluster-connection-uri address="static://(tcp://localhost:61617)?messageLoadBalancingType=STRICT;retryInterval=500;connectorName=netty-connector;maxHops=1" name="my-cluster"/>
       </cluster-connections>
 
       <!--  other configuration -->

@@ -37,6 +37,8 @@ under the License.
       <!-- Connectors -->
       <connectors>
          <connector name="netty-connector">tcp://localhost:61617</connector>
+         <connector name="server0-connector">tcp://localhost:61616</connector>
+         <connector name="server2-connector">tcp://localhost:61618</connector>
       </connectors>
 
       <!-- Acceptors -->
@@ -44,30 +46,16 @@ under the License.
          <acceptor name="netty-acceptor">tcp://localhost:61617</acceptor>
       </acceptors>
 
-      <broadcast-groups>
-         <broadcast-group name="bg-group1">
-            <group-address>${udp-address:231.7.7.7}</group-address>
-            <group-port>9876</group-port>
-            <broadcast-period>1000</broadcast-period>
-            <connector-ref>netty-connector</connector-ref>
-         </broadcast-group>
-      </broadcast-groups>
-
-      <discovery-groups>
-         <discovery-group name="dg-group1">
-            <group-address>${udp-address:231.7.7.7}</group-address>
-            <group-port>9876</group-port>
-            <refresh-timeout>60000</refresh-timeout>
-         </discovery-group>
-      </discovery-groups>
-
       <cluster-user>my-cluster-user</cluster-user>
       <cluster-password>my-cluster-password</cluster-password>
 
       <cluster-connections>
          <cluster-connection name="my-cluster">
             <connector-ref>netty-connector</connector-ref>
-            <discovery-group-ref discovery-group-name="dg-group1"/>
+            <static-connectors>
+               <connector-ref>server0-connector</connector-ref>
+               <connector-ref>server2-connector</connector-ref>
+            </static-connectors>
          </cluster-connection>
       </cluster-connections>
       <!-- Other config -->

@@ -31,6 +31,7 @@ under the License.
       <!-- Connectors -->
       <connectors>
          <connector name="netty-connector">tcp://localhost:61616</connector>
+         <connector name="server1-connector">tcp://localhost:61617</connector>
       </connectors>
 
       <!-- Acceptors -->
@@ -39,22 +40,6 @@ under the License.
       </acceptors>
 
       <!-- Clustering configuration -->
-      <broadcast-groups>
-         <broadcast-group name="my-broadcast-group">
-            <group-address>${udp-address:231.7.7.7}</group-address>
-            <group-port>9876</group-port>
-            <broadcast-period>100</broadcast-period>
-            <connector-ref>netty-connector</connector-ref>
-         </broadcast-group>
-      </broadcast-groups>
-
-      <discovery-groups>
-         <discovery-group name="my-discovery-group">
-            <group-address>${udp-address:231.7.7.7}</group-address>
-            <group-port>9876</group-port>
-            <refresh-timeout>10000</refresh-timeout>
-         </discovery-group>
-      </discovery-groups>
 
       <cluster-user>my-cluster-user</cluster-user>
       <cluster-password>my-cluster-password</cluster-password>
@@ -66,7 +51,9 @@ under the License.
             <use-duplicate-detection>true</use-duplicate-detection>
             <message-load-balancing>ON_DEMAND</message-load-balancing>
             <max-hops>1</max-hops>
-            <discovery-group-ref discovery-group-name="my-discovery-group"/>
+            <static-connectors>
+               <connector-ref>server1-connector</connector-ref>
+            </static-connectors>
          </cluster-connection>
       </cluster-connections>
 

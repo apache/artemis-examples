@@ -64,6 +64,7 @@ under the License.
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                      <instance>${basedir}/target/server0</instance>
                      <configuration>${basedir}/target/classes/activemq/server0</configuration>
+                     <javaOptions>-Dbrokerconfig.HAPolicyConfiguration.excludedConnectors=server0-connector,server0-colocated-backup-connector,server1-connector,server1-colocated-backup-connector</javaOptions>
                   </configuration>
                </execution>
                <execution>
@@ -76,6 +77,7 @@ under the License.
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                      <instance>${basedir}/target/server1</instance>
                      <configuration>${basedir}/target/classes/activemq/server1</configuration>
+                     <javaOptions>-Dbrokerconfig.HAPolicyConfiguration.excludedConnectors=server0-connector,server0-colocated-backup-connector,server1-connector,server1-colocated-backup-connector</javaOptions>
                   </configuration>
                </execution>
                <execution>

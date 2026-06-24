@@ -26,6 +26,8 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 
+import org.apache.activemq.artemis.util.ServerUtil;
+
 /**
  * A simple example that demonstrates failover of the JMS connection from one node to another
  * when the live server crashes using a JMS <em>non-transacted</em> session.
@@ -39,7 +41,14 @@ public class StopServerFailoverExample {
 
       InitialContext initialContext = null;
 
+
+      Process[] servers = new Process[2];
+
       try {
+         for (int i = 0; i < args.length; i++) {
+            servers[i] = ServerUtil.startServer(args[i], StopServerFailoverExample.class.getSimpleName() + i, i, 5000);
+         }
+
          // Step 1. Get an initial context for looking up JNDI from the server #1
          initialContext = new InitialContext();
 
@@ -109,6 +118,10 @@ public class StopServerFailoverExample {
 
          if (initialContext != null) {
             initialContext.close();
+         }
+
+         for (int i = 0; i < args.length; i++) {
+            ServerUtil.killServer(servers[i]);
          }
       }
    }
