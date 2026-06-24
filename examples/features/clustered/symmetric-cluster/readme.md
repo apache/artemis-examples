@@ -18,9 +18,9 @@ The configuration used in this example is very similar to the configuration used
 
 To set up Apache Artemis to form a symmetric cluster we simply need to mark each broker as `clustered` and we need to define a `cluster-connection` in `broker.xml`.
 
-The `cluster-connection` tells the nodes what other nodes to make connections to. With a `cluster-connection` each node that we connect to can either be specified indivually, or we can use UDP discovery to find out what other nodes are in the cluster.
+The `cluster-connection` tells the nodes what other nodes to make connections to. With a `cluster-connection` each node that we connect to can either be specified indivually, or we can use server discovery to find out what other nodes are in the cluster.
 
-Using UDP discovery makes configuration simpler since we don't have to know what nodes are available at any one time.
+Using server discovery makes configuration simpler since we don't have to know what nodes are available at any one time.
 
 Here's the relevant snippet from the broker configuration, which tells the broker to form a cluster with the other nodes:
 
@@ -30,6 +30,14 @@ Here's the relevant snippet from the broker configuration, which tells the broke
 	   <use-duplicate-detection>true</use-duplicate-detection>
 	   <message-load-balancing>STRICT</message-load-balancing>
 	   <max-hops>1</max-hops>
+       <static-connectors>
+         <connector-ref>server1-connector</connector-ref>
+         <connector-ref>server2-connector</connector-ref>
+         <connector-ref>server3-connector</connector-ref>
+         <connector-ref>server4-connector</connector-ref>
+         <connector-ref>server5-connector</connector-ref>
+       </static-connectors>
+
 	   <discovery-group-ref discovery-group-name="my-discovery-group"/>
     </cluster-connection>
 

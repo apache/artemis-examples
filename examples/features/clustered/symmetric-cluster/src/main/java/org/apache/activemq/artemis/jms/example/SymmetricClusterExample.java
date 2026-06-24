@@ -25,10 +25,7 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
 
-import org.apache.activemq.artemis.api.core.DiscoveryGroupConfiguration;
-import org.apache.activemq.artemis.api.core.UDPBroadcastEndpointFactory;
 import org.apache.activemq.artemis.api.jms.ActiveMQJMSClient;
-import org.apache.activemq.artemis.api.jms.JMSFactoryType;
 
 /**
  * This example demonstrates a cluster of three nodes set up in a symmetric topology - i.e. each
@@ -63,20 +60,13 @@ public class SymmetricClusterExample {
       Connection connection5 = null;
 
       try {
-         // Step 1 - We instantiate a connection factory directly, specifying the UDP address and port for discovering
-         // the list of servers in the cluster.
+         // Step 1 - We instantiate a connection factory directly, specifying the list of servers in the cluster.
          // We could use JNDI to look-up a connection factory, but we'd need to know the JNDI server host and port for
-         // the
-         // specific server to do that, and that server might not be available at the time. By creating the
+         // the specific server to do that, and that server might not be available at the time. By creating the
          // connection factory directly we avoid having to worry about a JNDI look-up.
          // In an app server environment you could use HA-JNDI to lookup from the clustered JNDI servers without
          // having to know about a specific one.
-         UDPBroadcastEndpointFactory udpCfg = new UDPBroadcastEndpointFactory();
-         udpCfg.setGroupAddress("231.7.7.7").setGroupPort(9876);
-         DiscoveryGroupConfiguration groupConfiguration = new DiscoveryGroupConfiguration();
-         groupConfiguration.setBroadcastEndpointFactory(udpCfg);
-
-         ConnectionFactory cf = ActiveMQJMSClient.createConnectionFactoryWithHA(groupConfiguration, JMSFactoryType.CF);
+         ConnectionFactory cf = ActiveMQJMSClient.createConnectionFactory("(tcp://localhost:61616,tcp://localhost:61617,tcp://localhost:61618,tcp://localhost:61619,tcp://localhost:61620,tcp://localhost:61621)", "servers");
 
          // We give a little while for each server to broadcast its whereabouts to the client
          Thread.sleep(2000);
