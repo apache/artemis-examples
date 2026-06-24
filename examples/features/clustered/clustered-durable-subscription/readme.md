@@ -21,7 +21,9 @@ The cli create method will define a similar section by default if you use `--clu
         <use-duplicate-detection>true</use-duplicate-detection>
         <message-load-balancing>STRICT</message-load-balancing>
         <max-hops>1</max-hops>
-        <discovery-group-ref discovery-group-name="my-discovery-group"/>
+        <static-connectors>
+            <connector-ref>server1-connector</connector-ref>
+        </static-connectors>
     </cluster-connection>
 
 For more information on Apache Artemis load balancing, and clustering in general, please see the "Clusters" chapter of the user manual.

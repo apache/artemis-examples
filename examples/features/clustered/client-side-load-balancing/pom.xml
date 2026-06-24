@@ -57,7 +57,7 @@ under the License.
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <instance>${basedir}/target/server0</instance>
-                     <clustered>true</clustered>
+                     <staticCluster>tcp://localhost:61617,tcp://localhost:61618</staticCluster>
                      <args>
                         <arg>--queues</arg>
                         <arg>exampleQueue</arg>
@@ -78,7 +78,7 @@ under the License.
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <instance>${basedir}/target/server1</instance>
-                     <clustered>true</clustered>
+                     <staticCluster>tcp://localhost:61616,tcp://localhost:61618</staticCluster>
                      <portOffset>1</portOffset>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
@@ -100,7 +100,7 @@ under the License.
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <instance>${basedir}/target/server2</instance>
-                     <clustered>true</clustered>
+                     <staticCluster>tcp://localhost:61616,tcp://localhost:61618</staticCluster>
                      <portOffset>2</portOffset>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>

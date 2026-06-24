@@ -21,6 +21,13 @@
          bind_port="${jgroups.bind_port:7800}"
          external_addr="${jgroups.external_addr}"
          external_port="${jgroups.external_port}"
+         tls.enabled="true"
+         tls.client_auth="NEED"
+         tls.keystore_path="${data.dir}/../etc/server-keystore.jks"
+         tls.keystore_password="securepass"
+         tls.keystore_alias="server"
+         tls.truststore_path="${data.dir}/../etc/server-keystore.jks"
+         tls.truststore_password="securepass"
          thread_pool.min_threads="0"
          thread_pool.max_threads="200"
          thread_pool.keep_alive_time="30000"/>
