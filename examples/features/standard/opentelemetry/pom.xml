@@ -33,7 +33,7 @@ under the License.
 
    <properties>
       <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
-      <opentelemetry.version>1.34.1</opentelemetry.version>
+      <opentelemetry.version>1.62.0</opentelemetry.version>
    </properties>
 
    <dependencies>
