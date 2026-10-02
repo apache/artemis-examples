@@ -57,10 +57,7 @@ under the License.
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <libList>
-                        <!-- adding derby for the example -->
-                        <arg>org.apache.derby:derby:${apache.derby.version}</arg>
-                        <arg>org.apache.derby:derbytools:${apache.derby.version}</arg>
-                        <arg>org.apache.derby:derbyshared:${apache.derby.version}</arg>
+                        <arg>org.hsqldb:hsqldb:${hsqldb.version}</arg>
                      </libList>
                      <args>
                         <arg>--jdbc</arg>
