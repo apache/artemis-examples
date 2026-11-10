@@ -23,12 +23,15 @@ import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.naming.InitialContext;
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+
+import org.apache.activemq.artemis.core.remoting.impl.ssl.SSLSupport;
 
 /**
  * An example where a client will send a Stomp message on a TCP socket
@@ -45,13 +48,15 @@ public class StompDualAuthenticationExample {
 
       try {
          // set up SSL keystores for Stomp connection
-         System.setProperty("javax.net.ssl.trustStore", args[0] + "server-ca-truststore.jks");
-         System.setProperty("javax.net.ssl.trustStorePassword", "securepass");
-         System.setProperty("javax.net.ssl.keyStore", args[0] + "client-keystore.jks");
-         System.setProperty("javax.net.ssl.keyStorePassword", "securepass");
+         SSLContext sslContext = new SSLSupport()
+            .setTruststorePath(args[0] + "server-ca-truststore.jks")
+            .setTruststorePassword("securepass")
+            .setKeystorePath(args[0] + "client-keystore.jks")
+            .setKeystorePassword("securepass")
+            .createContext();
 
          // Step 1. Create an SSL socket to connect to the broker
-         SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+         SSLSocketFactory sslsocketfactory = sslContext.getSocketFactory();
          SSLSocket socket = (SSLSocket) sslsocketfactory.createSocket("localhost", 5500);
 
          // Step 2. Send a CONNECT frame to connect to the server
@@ -112,11 +117,6 @@ public class StompDualAuthenticationExample {
          if (connection != null) {
             connection.close();
          }
-
-         System.clearProperty("javax.net.ssl.trustStore");
-         System.clearProperty("javax.net.ssl.trustStorePassword");
-         System.clearProperty("javax.net.ssl.keyStore");
-         System.clearProperty("javax.net.ssl.keyStorePassword");
       }
    }
 
